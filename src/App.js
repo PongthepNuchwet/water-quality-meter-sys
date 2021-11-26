@@ -1,25 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect
+} from "react-router-dom";
+import { useState, createRef } from "react";
+import Login from './pages/Login'
+import WaterQuality from './pages/WaterQuality'
+import NotFound from './pages/NotFound'
+import Authenticate from './Authenticate'
 
-function App() {
+export default function App() {
+
+  const [user, setUser] = useState(true)
+  const username = createRef()
+  const password = createRef()
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+
+    <Router>
+      <Switch>
+        <Route exact path="/">
+          <Authenticate user={user} />
+        </Route>
+        <Route path="/login">
+          {user ? <Redirect to="/home" /> : <Login username={username} password={password} setUser={setUser} />}
+        </Route>
+        <Route path="/home">
+          {user ? <WaterQuality /> : <Redirect to="/login" />}
+        </Route>
+        <Route path="*">
+          <NotFound />
+        </Route>
+      </Switch>
+    </Router>
   );
 }
 
-export default App;
