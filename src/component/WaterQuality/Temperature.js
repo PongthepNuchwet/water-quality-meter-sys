@@ -1,19 +1,19 @@
-import { useState } from 'react';
 import GaugeChart from 'react-gauge-chart'
 import Box from '@mui/material/Box';
+import { useSelector } from 'react-redux'
 
 export default function Temperature() {
-
-    const pH = 7.1
-    const colors = ["#a5a8b0", "#ae2c31", "#ce4815", "#d17505", '#e8a702', '#f4bc04', '#c8bd02', '#568e05', '#2a750b', '#2e7b3d', '#2e7764', '#2c60a8', '#255093', '#1d3d83']
+    const C = useSelector((state) => state.gauge.temperature)
+    const Percent = (C * 100 / 100) / 100
+    const colors = [ '#50c0af', '#89ca88', '#d0de63', '#f9e80c', '#f7d019', '#f2a42e', '#ef6930', '#ed4634', '#e43436', '#c6202c']
 
     return (
         <>
             <Box>
                 <GaugeChart
-                    nrOfLevels={14}
-                    percent={1}
-                    formatTextValue={value => pH + ' pH'}
+                    nrOfLevels={10}
+                    percent={Percent}
+                    formatTextValue={value => C + ' °C'}
                     colors={colors}
                     arcPadding={0.02}
                     cornerRadius={5}

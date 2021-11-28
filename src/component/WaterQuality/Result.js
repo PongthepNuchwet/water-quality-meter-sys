@@ -19,7 +19,7 @@ export default function Result() {
                         <ResultText />
                     </Grid>
                     <Grid item sm={8}>
-                        <ResultTree />
+                        <ResultTree  />
                     </Grid>
                 </Grid>
 

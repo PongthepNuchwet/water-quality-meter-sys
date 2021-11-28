@@ -1,83 +1,24 @@
-import { useState } from 'react';
-
+import GaugeChart from 'react-gauge-chart'
 import Box from '@mui/material/Box';
-import {
-    Chart as ChartJS,
-    CategoryScale,
-    LinearScale,
-    PointElement,
-    LineElement,
-    Title,
-    Tooltip,
-    Legend,
-} from 'chart.js';
-import { Line } from 'react-chartjs-2';
-import { Button } from '@mui/material';
+import { useSelector } from 'react-redux'
 
 export default function PH() {
 
-    const [count, setCount] = useState(0)
-    const [label, setLabel] = useState([])
-    const [dataset, setDataset] = useState([])
-
-    ChartJS.register(
-        CategoryScale,
-        LinearScale,
-        PointElement,
-        LineElement,
-        Title,
-        Tooltip,
-        Legend
-    );
-
-    const options = {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-            legend: {
-                position: 'top',
-            },
-            title: {
-                display: true,
-                text: 'PH',
-            },
-        },
-    };
-
-    const data = {
-        labels: label,
-        datasets: [
-            {
-                label: 'PH',
-                data: dataset,
-                borderColor: 'rgb(255, 99, 132)',
-                backgroundColor: 'rgba(255, 99, 132, 0.5)',
-            },
-        ],
-    };
-
-    const onClick = () => {
-        setLabel(() => {
-            let tmp = label
-            tmp.push(count)
-            return tmp
-        })
-
-        setDataset(() => {
-            let tmp = dataset
-            tmp.push(count)
-            return tmp
-        })
-        setCount(count + 1)
-    }
+    const pH = useSelector((state) => state.gauge.pH)
+    const Percent = (pH * 100 /14 ) / 100
+    const colors = ['#d61f00', '#ef6e3b', '#f4b718', '#faf001', '#cbe800', '#8dd200', '#4cbf00', '#41ab00', '#49b875', '#56cbcd', '#469bd9', '#386ae6', '#395bdd', '#6b4bd5', '#52369f']
 
     return (
         <>
-            <Box  style={{
-                height:'200px'
-            }} >
-                <Line options={options} data={data} />
-                {/* <Button onClick={onClick}>Click</Button> */}
+            <Box>
+                <GaugeChart
+                    nrOfLevels={15}
+                    percent={Percent}
+                    formatTextValue={value => pH + ' pH'}
+                    colors={colors}
+                    arcPadding={0.02}
+                    cornerRadius={5}
+                />
             </Box>
         </>
     )

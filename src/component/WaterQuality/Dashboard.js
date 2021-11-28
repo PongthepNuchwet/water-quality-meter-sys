@@ -11,7 +11,7 @@ export default function Dashboard() {
                 <Container>
                     <Stack spacing={2}>
                         <Chart />
-                        <Result />
+                        <Result  />
                     </Stack>
                 </Container>
             </Box>
