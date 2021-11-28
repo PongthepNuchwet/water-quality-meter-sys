@@ -8,10 +8,10 @@ export default function Dashboard() {
     return (
         <>
             <Box >
-                <Container>
-                    <Stack spacing={2}>
+                <Container >
+                    <Stack spacing={1}>
                         <Chart />
-                        <Result  />
+                        <Result />
                     </Stack>
                 </Container>
             </Box>

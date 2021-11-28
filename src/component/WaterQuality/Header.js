@@ -8,7 +8,18 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import LogoutIcon from '@mui/icons-material/Logout';
 
+import {  useDispatch } from 'react-redux'
+import { signOut } from '../../store/Auth'
+
 export default function Header() {
+
+    const dispatch = useDispatch()
+
+    const handleClose = (event, reason) => {
+
+        dispatch(signOut())
+    };
+
     const theme = createTheme({
         palette: {
             primary: {
@@ -37,7 +48,8 @@ export default function Header() {
                                     }}>
                                         ระบบตรวจสอบคุณภาพน้ำเพื่อรดน้ำต้นไม้
                                     </Typography>
-                                    <Button
+                                    <Button 
+                                    onClick={handleClose}
                                         sx={{
                                             fontFamily: 'mitr',
                                             color: 'white'

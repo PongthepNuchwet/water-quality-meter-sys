@@ -5,6 +5,7 @@ import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
 import Grid from '@mui/material/Grid'
 import { useSelector } from 'react-redux'
+import Grow from '@mui/material/Grow';
 export default function ResultTree() {
     const pH = useSelector((state) => state.gauge.pH)
     const plants = useSelector((state) => state.plants.data)
@@ -19,30 +20,32 @@ export default function ResultTree() {
                     <Grid container spacing={1}>
 
                         {
-                            plants.map(data => {
+                            plants.map((data) => {
                                 if (pH >= data.pHMin && pH <= data.pHMax) {
                                     return (
-                                        <Grid item sm={3} key={data.id}>
-                                            <Card sx={{ maxWidth: 150, background: '#212332' }} >
-                                                <CardMedia component="img"
-                                                    height="100px"
-                                                    image={data.image}
-                                                    alt={data.name} />
-                                                <Box sx={{
-                                                    color: 'white',
-                                                    padding: '10px',
-                                                    background: '#313448'
+                                        <Grow in={true} key={data.id}>
+                                            <Grid item sm={12} md={6} lg={3} xl={2} >
+                                                <Card sx={{ width: '100%', background: '#212332' }} >
+                                                    <CardMedia component="img"
+                                                        height="90px"
+                                                        image={data.image}
+                                                        alt={data.name} />
+                                                    <Box sx={{
+                                                        color: 'white',
+                                                        padding: '10px',
+                                                        background: '#313448'
 
-                                                }}>
-                                                    <Typography variant="subtitle1" sx={{ color: 'white' }} align='center' sx={{ fontFamily: 'mitr' }}>
-                                                        {data.name}
-                                                    </Typography>
-                                                    <Typography variant="subtitle2" sx={{ color: 'white' }} align='center' sx={{ fontFamily: 'mitr' }}>
-                                                        {data.pHMin === data.pHMax ? `${data.pHMin} pH` : `${data.pHMin} - ${data.pHMax} pH`}
-                                                    </Typography>
-                                                </Box>
-                                            </Card>
-                                        </Grid>
+                                                    }}>
+                                                        <Typography variant="subtitle2" sx={{ color: 'white' }} align='center' sx={{ fontFamily: 'mitr' }}>
+                                                            {data.name}
+                                                        </Typography>
+                                                        <Typography variant="subtitle2" sx={{ color: 'white' }} align='center' sx={{ fontFamily: 'mitr' }}>
+                                                            {data.pHMin === data.pHMax ? `${data.pHMin} pH` : `${data.pHMin} - ${data.pHMax} pH`}
+                                                        </Typography>
+                                                    </Box>
+                                                </Card>
+                                            </Grid>
+                                        </Grow>
                                     )
                                 }
                             })

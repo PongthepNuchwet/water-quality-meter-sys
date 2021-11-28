@@ -1,5 +1,7 @@
 import { useHistory } from "react-router-dom";
-import { useEffect, useRef, useState, forwardRef } from 'react';
+import { useEffect, useState, createRef } from 'react';
+import { useSelector, useDispatch } from 'react-redux'
+import {check } from '../store/Auth'
 
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
@@ -18,39 +20,49 @@ import Input from "../component/login/TextField"
 import LoginSnackbar from '../component/login/LoginSnackbar'
 
 
-const Login = ({ username, password, setUser }) => {
+
+const Login = () => {
 
   let history = useHistory();
+  const user = useSelector((state) => state.auth.status)
+  const dispatch = useDispatch();
+
+  const username = createRef()
+  const password = createRef()
 
   const [open, setOpen] = useState(false);
-  const [checked, setChecked] = useState(false);
-  const [userError, setUserError] = useState(false);
-  const [passError, setPassError] = useState(false)
+
 
   const MyButton = styled(Button)({
     background: 'linear-gradient(45deg, #7fb329 30%, #90cc2d 90%)'
   })
   function onClick() {
-    if (username.current.value === '6310301004' && password.current.value === '6310301004') {
-      setUser(true)
-      history.push("/home")
-    } else {
-      setOpen(true);
-      setUserError(true)
-      setPassError(true)
-    }
+    dispatch(check({
+      username: username.current.value,
+      password: password.current.value
+    }))
+
+    console.log('user', user)
+
+    // if (){
+    // dispatch(signIn())
+    // history.push("/home")
+    //   console.log(100)
+    // }else{
+    //   console.log(200)
+    // }
+    // if (username.current.value === '6310301004' && password.current.value === '6310301004') {
+    //   setUser(true)
+    //   history.push("/home")
+    // } else {
+    //   setOpen(true);
+    //   setUserError(true)
+    //   setPassError(true)
+    // }
   }
 
-  const handleClose = (event, reason) => {
-    if (reason === 'clickaway') {
-      return;
-    }
-    setOpen(false);
-  };
 
-  useEffect(() => {
-    setChecked(true)
-  }, [])
+
 
   return (
     <>
@@ -68,10 +80,10 @@ const Login = ({ username, password, setUser }) => {
         }}
       >
         <LottieWaterRipple />
-        <Zoom in={checked}>
+        <Zoom in={true}>
           <Box
             sx={{
-              width:'500px',
+              width: '500px',
               backgroundColor: '#ffffff',
               padding: '10px',
               borderRadius: 3,
@@ -83,15 +95,13 @@ const Login = ({ username, password, setUser }) => {
               <Header />
               <LottieRegister />
               <Input
-                userError={userError}
-                passError={passError}
                 username={username}
                 password={password} />
               <Box sx={{
                 fontFamily: 'mitr',
                 py: 1
               }}>
-                <LoginSnackbar handleClose={handleClose} open={open} />
+                <LoginSnackbar open={open} />
                 <MyButton startIcon={<LoginIcon />} onClick={onClick} variant="contained" size="large" color="primary" fullWidth > เข้าสู่ระบบ </MyButton>
               </Box>
             </Container>

@@ -2,12 +2,17 @@ import SupervisedUserCircleIcon from '@mui/icons-material/SupervisedUserCircle';
 import InputAdornment from '@mui/material/InputAdornment';
 import PasswordIcon from '@mui/icons-material/Password';
 import TextField from "@mui/material/TextField"
-export default function Input({userError,passError,username,password}) {
+import { useSelector } from 'react-redux'
+export default function Input({ username, password }) {
+
+    const warning = useSelector((state) => state.auth.warning)
 
     return (
         <>
             <TextField
-                error={userError}
+                autoComplete='aaa'
+                autoFocus={true}
+                error={warning}
                 label="Username"
                 inputRef={username}
                 variant="outlined"
@@ -23,8 +28,9 @@ export default function Input({userError,passError,username,password}) {
                 }} />
 
             <TextField
+                autoComplete=''
                 label="Password"
-                error={passError}
+                error={warning}
                 InputProps={{
                     startAdornment: (
                         <InputAdornment position="start">

@@ -3,7 +3,7 @@ import { createSlice } from '@reduxjs/toolkit'
 export const Gauge = createSlice({
   name: 'Gauge',
   initialState: {
-    pH: 5,
+    pH: 6,
     temperature: 21,
     oxygen: 0
   },

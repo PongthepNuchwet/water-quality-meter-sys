@@ -38,10 +38,10 @@ export default function ResultText() {
                 </Typography>
                 <Divider color="white" />
                 <Water />
-                <Typography variant="body2" sx={{ color: 'white', fontFamily: 'mitr' }}>
-                    <Text1 ph={pH} />
+                <Typography variant="h5" sx={{ color: 'white', fontFamily: 'mitr' }}>
+                    สถานะ : <Text1 ph={pH} />
                 </Typography>
-                <Typography variant="body2" sx={{ color: 'white', fontFamily: 'mitr' }}>
+                <Typography variant="body1" sx={{ mt:'10px',color: 'white', fontFamily: 'mitr' ,textIndent:'20px'}}>
                     <Text2 ph={pH} />
                 </Typography>
             </Box>

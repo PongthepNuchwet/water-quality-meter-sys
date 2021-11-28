@@ -1,5 +1,4 @@
 import Box from '@mui/material/Box';
-import Stack from '@mui/material/Stack'
 import Grid from '@mui/material/Grid'
 
 import ResultText from './ResultText'
@@ -15,10 +14,10 @@ export default function Result() {
                 height: 'auto'
             }}>
                 <Grid spacing={2} container >
-                    <Grid item sm={4}>
+                    <Grid item sm={12} md={4}>
                         <ResultText />
                     </Grid>
-                    <Grid item sm={8}>
+                    <Grid item sm={12} md={8}>
                         <ResultTree  />
                     </Grid>
                 </Grid>

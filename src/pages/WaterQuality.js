@@ -12,7 +12,7 @@ export default function WaterQuality() {
         height: 'auto',
         paddingBottom: '20px'
       }}>
-        <Stack spacing={2} >
+        <Stack spacing={1} >
           <Header />
           <Dashboard />
         </Stack>

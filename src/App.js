@@ -5,22 +5,19 @@ import {
   Redirect
 } from "react-router-dom";
 import { useState, createRef, useEffect } from "react";
+import { useSelector, useDispatch } from 'react-redux'
 import Login from './pages/Login'
 import WaterQuality from './pages/WaterQuality'
 import NotFound from './pages/NotFound'
 import Authenticate from './Authenticate'
 import myFirebase from './firebase/firebase-config'
 import { getDatabase, ref, onValue } from "firebase/database";
-import { useDispatch } from 'react-redux'
 import { setPH, setTemperature, setOxygen } from './store/Gauge'
 
 
 export default function App() {
 
-
-  const [user, setUser] = useState(true)
-  const username = createRef()
-  const password = createRef()
+  const user = useSelector((state) => state.auth.status)
   const dispatch = useDispatch()
 
   useEffect(() => {
@@ -42,7 +39,7 @@ export default function App() {
           <Authenticate user={user} />
         </Route>
         <Route path="/login">
-          {user ? <Redirect to="/home" /> : <Login username={username} password={password} setUser={setUser} />}
+          {user ? <Redirect to="/home" /> : <Login />}
         </Route>
         <Route path="/home">
           {user ? <WaterQuality /> : <Redirect to="/login" />}

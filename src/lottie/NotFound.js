@@ -17,7 +17,7 @@ export default function LottieNotFound() {
 
     return (
         <>
-            <div ref={container} style={{ height: '75vh' ,visibility: 'hidden' }}></div>
+            <div ref={container} style={{ height: '75vh',}}></div>
         </>
     )
 
