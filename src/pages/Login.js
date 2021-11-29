@@ -1,7 +1,6 @@
-import { useHistory } from "react-router-dom";
-import { useEffect, useState, createRef } from 'react';
-import { useSelector, useDispatch } from 'react-redux'
-import {check } from '../store/Auth'
+import { createRef } from 'react';
+import { useDispatch } from 'react-redux'
+import { check } from '../store/Auth'
 
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
@@ -23,18 +22,13 @@ import LoginSnackbar from '../component/login/LoginSnackbar'
 
 const Login = () => {
 
-  let history = useHistory();
-  const user = useSelector((state) => state.auth.status)
   const dispatch = useDispatch();
-
   const username = createRef()
   const password = createRef()
 
-  const [open, setOpen] = useState(false);
-
-
   const MyButton = styled(Button)({
-    background: 'linear-gradient(45deg, #7fb329 30%, #90cc2d 90%)'
+    background: 'linear-gradient(45deg, #007e05bd 30%, #278b0b 90%)',
+    fontFamily: 'mitr'
   })
   function onClick() {
     dispatch(check({
@@ -42,31 +36,26 @@ const Login = () => {
       password: password.current.value
     }))
 
-    console.log('user', user)
 
-    // if (){
-    // dispatch(signIn())
-    // history.push("/home")
-    //   console.log(100)
-    // }else{
-    //   console.log(200)
-    // }
-    // if (username.current.value === '6310301004' && password.current.value === '6310301004') {
-    //   setUser(true)
-    //   history.push("/home")
-    // } else {
-    //   setOpen(true);
-    //   setUserError(true)
-    //   setPassError(true)
-    // }
   }
-
-
 
 
   return (
     <>
       <CssBaseline />
+      <Box sx={{
+        position:'fixed' , 
+        left:'0' ,
+        top:'0',
+        background:'white',
+        zIndex: 'tooltip',
+        p:'5px',
+        fontFamily:'mitr',
+        borderBottomRightRadius:'10px'
+
+        }}>
+        สถาบันเทคโนโลยีจิตรลดา
+      </Box>
       <Box
         component="main"
         sx={{
@@ -76,7 +65,7 @@ const Login = () => {
           flexGrow: 1,
           minHeight: '100vh',
           fontFamily: 'mitr',
-          backgroundColor: '#00a4d3',
+          backgroundColor: '#03a9f4',
         }}
       >
         <LottieWaterRipple />
@@ -84,8 +73,8 @@ const Login = () => {
           <Box
             sx={{
               width: '500px',
-              backgroundColor: '#ffffff',
-              padding: '10px',
+              backgroundColor: '#2a2d3e',
+              padding: '20px 10px',
               borderRadius: 3,
               boxShadow: 1,
               zIndex: 'tooltip'
@@ -101,7 +90,7 @@ const Login = () => {
                 fontFamily: 'mitr',
                 py: 1
               }}>
-                <LoginSnackbar open={open} />
+                <LoginSnackbar />
                 <MyButton startIcon={<LoginIcon />} onClick={onClick} variant="contained" size="large" color="primary" fullWidth > เข้าสู่ระบบ </MyButton>
               </Box>
             </Container>

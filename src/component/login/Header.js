@@ -9,6 +9,7 @@ export default function Header() {
         typography: {
             fontFamily: 'mitr'
         }
+        
     })
 
 
@@ -23,7 +24,7 @@ export default function Header() {
                     ระบบตรวจสอบคุณภาพน้ำเพื่อรดน้ำต้นไม้
                 </Typography>
                 <Typography variant="h6" color="textSecondary" sx={{
-                    color: 'rgb(143 122 113)'
+                    color: '#03a9f4'
                 }}>
                     ลงชื่อเข้าสู่ระบบ
                 </Typography>

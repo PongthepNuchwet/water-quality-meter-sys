@@ -1,18 +1,17 @@
 import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Redirect
+  BrowserRouter as Router, Switch, Route, Redirect
 } from "react-router-dom";
-import { useState, createRef, useEffect } from "react";
-import { useSelector, useDispatch } from 'react-redux'
+import React, { useEffect } from "react";
+import { useSelector, useDispatch, } from 'react-redux'
+import { setPH, setTemperature, setOxygen } from './store/Gauge'
+
 import Login from './pages/Login'
 import WaterQuality from './pages/WaterQuality'
 import NotFound from './pages/NotFound'
 import Authenticate from './Authenticate'
+
 import myFirebase from './firebase/firebase-config'
 import { getDatabase, ref, onValue } from "firebase/database";
-import { setPH, setTemperature, setOxygen } from './store/Gauge'
 
 
 export default function App() {
@@ -21,7 +20,7 @@ export default function App() {
   const dispatch = useDispatch()
 
   useEffect(() => {
-    const db = getDatabase()
+    const db = getDatabase(myFirebase)
     const starCountRef = ref(db, 'gauge');
     onValue(starCountRef, (snapshot) => {
       const data = snapshot.val()

@@ -36,10 +36,10 @@ export default function ResultTree() {
                                                         background: '#313448'
 
                                                     }}>
-                                                        <Typography variant="subtitle2" sx={{ color: 'white' }} align='center' sx={{ fontFamily: 'mitr' }}>
+                                                        <Typography variant="subtitle2" sx={{ color: 'white', fontFamily: 'mitr' }} align='center' >
                                                             {data.name}
                                                         </Typography>
-                                                        <Typography variant="subtitle2" sx={{ color: 'white' }} align='center' sx={{ fontFamily: 'mitr' }}>
+                                                        <Typography variant="subtitle2" sx={{ color: 'white', fontFamily: 'mitr' }} align='center'>
                                                             {data.pHMin === data.pHMax ? `${data.pHMin} pH` : `${data.pHMin} - ${data.pHMax} pH`}
                                                         </Typography>
                                                     </Box>
@@ -47,6 +47,8 @@ export default function ResultTree() {
                                             </Grid>
                                         </Grow>
                                     )
+                                } else {
+                                    return null
                                 }
                             })
                         }
