@@ -8,7 +8,7 @@ import { setPH, setTemperature, setOxygen } from './store/Gauge'
 import Login from './pages/Login'
 import WaterQuality from './pages/WaterQuality'
 import NotFound from './pages/NotFound'
-import Authenticate from './Authenticate'
+import Home from './pages/Home'
 
 import myFirebase from './firebase/firebase-config'
 import { getDatabase, ref, onValue } from "firebase/database";
@@ -35,12 +35,15 @@ export default function App() {
     <Router>
       <Switch>
         <Route exact path="/">
-          <Authenticate user={user} />
+          {user ? <Redirect to="/home" /> : <Redirect to="/login" />}
         </Route>
         <Route path="/login">
           {user ? <Redirect to="/home" /> : <Login />}
         </Route>
         <Route path="/home">
+          {user ? <Home /> : <Redirect to="/login" />}
+        </Route>
+        <Route path="/gauge">
           {user ? <WaterQuality /> : <Redirect to="/login" />}
         </Route>
         <Route path="*">

@@ -44,16 +44,16 @@ const Login = () => {
     <>
       <CssBaseline />
       <Box sx={{
-        position:'fixed' , 
-        left:'0' ,
-        top:'0',
-        background:'white',
+        position: 'fixed',
+        left: '0',
+        top: '0',
+        background: 'white',
         zIndex: 'tooltip',
-        p:'5px',
-        fontFamily:'mitr',
-        borderBottomRightRadius:'10px'
+        p: '5px',
+        fontFamily: 'mitr',
+        borderBottomRightRadius: '10px'
 
-        }}>
+      }}>
         สถาบันเทคโนโลยีจิตรลดา
       </Box>
       <Box
@@ -82,7 +82,10 @@ const Login = () => {
           >
             <Container maxWidth="sm" >
               <Header />
-              <LottieRegister />
+              <Box sx={{height:'250px'}} >
+                <LottieRegister />
+              </Box>
+
               <Input
                 username={username}
                 password={password} />

@@ -6,8 +6,6 @@ import { useSelector } from 'react-redux'
 
 export default function ResultText() {
     const pH = useSelector((state) => state.gauge.pH)
-    console.log(pH)
-
     const Text1 = ({ ph }) => {
         if (ph >= 9.5) { return 'ด่างจัดมาก' }
         else if (ph >= 8.5) { return 'ด่างจัดมาก' }
@@ -41,7 +39,7 @@ export default function ResultText() {
                 <Typography variant="h5" sx={{ color: 'white', fontFamily: 'mitr' }}>
                     สถานะ : <Text1 ph={pH} />
                 </Typography>
-                <Typography variant="body1" sx={{ mt:'10px',color: 'white', fontFamily: 'mitr' ,textIndent:'20px'}}>
+                <Typography variant="body1" sx={{ mt: '10px', color: 'white', fontFamily: 'mitr', textIndent: '20px' }}>
                     <Text2 ph={pH} />
                 </Typography>
             </Box>

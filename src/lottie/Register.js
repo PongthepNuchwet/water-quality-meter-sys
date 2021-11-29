@@ -18,7 +18,7 @@ export default function LottieRegister() {
     return (
         <>
             <div ref={container} style={{
-                height: '250px'
+                height: '100%'
             }}></div>
         </>
     )
