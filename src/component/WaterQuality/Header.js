@@ -15,6 +15,7 @@ import HomeIcon from '@mui/icons-material/Home';
 import { useDispatch } from 'react-redux'
 import { useHistory } from "react-router-dom";
 import { signOut } from '../../store/Auth'
+import Logo from '../Logo'
 
 export default function Header() {
 
@@ -60,14 +61,18 @@ export default function Header() {
                                 alignItems="center"
                             >
                                 <Box >
-                                    <Typography variant="h5" style={{
-                                        fontFamily: 'mitr',
-                                        fontWeight: '800',
-                                        color: '#7fb329'
+                                    <Stack direction="row" alignItems="center">
 
-                                    }}>
-                                        ระบบตรวจสอบคุณภาพน้ำเพื่อรดน้ำต้นไม้
-                                    </Typography>
+                                        <Logo />
+                                        <Typography variant="h5" style={{
+                                            fontFamily: 'mitr',
+                                            fontWeight: '800',
+                                            color: '#7fb329'
+
+                                        }}>
+                                            ระบบตรวจสอบคุณภาพน้ำเพื่อรดน้ำต้นไม้
+                                        </Typography>
+                                    </Stack>
                                 </Box>
 
                                 <Stack direction="row" divider={<Divider color="#03a9f4" orientation="vertical" flexItem />}>

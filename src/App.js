@@ -17,8 +17,9 @@ import { getDatabase, ref, onValue } from "firebase/database";
 export default function App() {
 
   const user = useSelector((state) => state.auth.status)
-  const dispatch = useDispatch()
 
+  const dispatch = useDispatch()
+  console.log(typeof (user),typeof (dispatch))
   useEffect(() => {
     const db = getDatabase(myFirebase)
     const starCountRef = ref(db, 'gauge');

@@ -4,7 +4,7 @@ import PasswordIcon from '@mui/icons-material/Password';
 import TextField from "@mui/material/TextField"
 import { useSelector } from 'react-redux'
 import { createMuiTheme } from "@material-ui/core/styles";
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { ThemeProvider } from '@mui/material/styles';
 export default function Input({ username, password }) {
 
     const warning = useSelector((state) => state.auth.warning)
