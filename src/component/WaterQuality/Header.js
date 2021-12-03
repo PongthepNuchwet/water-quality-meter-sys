@@ -22,7 +22,7 @@ export default function Header() {
     const dispatch = useDispatch()
     const history = useHistory()
 
-    const handleClose = (event, reason) => {
+    const SignOut = (event, reason) => {
         dispatch(signOut())
     };
 
@@ -45,7 +45,7 @@ export default function Header() {
         history.push('/home')
     }
     const GotoGauge = () => {
-        history.push('/gauge')
+        history.push('/WaterQuality')
     }
 
     return (
@@ -85,7 +85,7 @@ export default function Header() {
                                 </Stack>
                                 <Box>
                                     <Button
-                                        onClick={handleClose}
+                                        onClick={SignOut}
                                         sx={{
                                             fontFamily: 'mitr',
                                             color: 'white'

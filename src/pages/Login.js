@@ -35,8 +35,6 @@ const Login = () => {
       username: username.current.value,
       password: password.current.value
     }))
-
-
   }
 
   return (

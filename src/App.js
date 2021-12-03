@@ -44,7 +44,7 @@ export default function App() {
         <Route path="/home">
           {user ? <Home /> : <Redirect to="/login" />}
         </Route>
-        <Route path="/gauge">
+        <Route path="/WaterQuality">
           {user ? <WaterQuality /> : <Redirect to="/login" />}
         </Route>
         <Route path="*">
