@@ -3,7 +3,7 @@ import {
 } from "react-router-dom";
 import React, { useEffect } from "react";
 import { useSelector, useDispatch, } from 'react-redux'
-import { setPH, setTemperature, setOxygen } from './store/Gauge'
+import { setPH, setTemperature, setOxygen, setTime, setPHList, setOxygenList,setTempList} from './store/Gauge'
 
 import Login from './pages/Login'
 import WaterQuality from './pages/WaterQuality'
@@ -14,21 +14,36 @@ import myFirebase from './firebase/firebase-config'
 import { getDatabase, ref, onValue } from "firebase/database";
 
 
+
 export default function App() {
 
   const user = useSelector((state) => state.auth.status)
-
   const dispatch = useDispatch()
-  console.log(typeof (user),typeof (dispatch))
   useEffect(() => {
     const db = getDatabase(myFirebase)
-    const starCountRef = ref(db, 'gauge');
-    onValue(starCountRef, (snapshot) => {
+    const set = ref(db, 'Set');
+    onValue(set, (snapshot) => {
       const data = snapshot.val()
-      dispatch(setPH(data.pH))
-      dispatch(setTemperature(data.temperature))
-      dispatch(setOxygen(data.oxygen))
+      dispatch(setPH(Number(data.pH).toFixed(2)))
+      dispatch(setTemperature(Number(data.temperature).toFixed(2)))
+      dispatch(setOxygen(Number(data.oxygen).toFixed(2)))
+      dispatch(setTime(data.EpochTime))
     });
+
+    const push = ref(db, 'Push');
+    onValue(push, (snapshot) => {
+      const data = snapshot.val()
+
+      const pH = Object.keys(data.pH).map(key => data.pH[key])
+      const temperature = Object.keys(data.temperature).map(key => data.temperature[key])
+      const oxy = Object.keys(data.oxygen).map(key => data.oxygen[key])
+
+      console.log(temperature,typeof(temperature))
+      dispatch(setPHList(pH))
+      dispatch(setOxygenList(oxy))
+      dispatch(setTempList(oxy))
+    });
+
   }, []);
 
   return (

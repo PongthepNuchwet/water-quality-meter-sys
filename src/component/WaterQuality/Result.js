@@ -8,10 +8,9 @@ export default function Result() {
     return (
         <>
             <Box sx={{
-                background: '#2a2d3e',
-                padding: '20px 20px',
-                borderRadius: '5px',
-                height: 'auto'
+               background: '#2a2d3e',
+               padding: '10px 20px',
+               borderRadius: '5px'
             }}>
                 <Grid spacing={2} container >
                     <Grid item sm={12} md={4}>

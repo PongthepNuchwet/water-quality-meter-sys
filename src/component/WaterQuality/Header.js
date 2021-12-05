@@ -1,3 +1,5 @@
+import { useState } from 'react'
+
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
@@ -10,7 +12,11 @@ import Stack from '@mui/material/Stack'
 import Divider from '@mui/material/Divider';
 import OpacityIcon from '@mui/icons-material/Opacity';
 import HomeIcon from '@mui/icons-material/Home';
-
+import IconButton from '@mui/material/IconButton';
+import Menu from '@mui/material/Menu';
+import MenuItem from '@mui/material/MenuItem';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import MenuIcon from '@mui/icons-material/Menu';
 
 import { useDispatch } from 'react-redux'
 import { useHistory } from "react-router-dom";
@@ -35,8 +41,13 @@ export default function Header() {
         },
     });
 
-    const MenuButton = {
+    const MenuStyle = {
         color: '#03a9f4',
+        fontFamily: 'mitr',
+        fontWeight: '800',
+    }
+    const logOutStyle = {
+        color: '#eb5146',
         fontFamily: 'mitr',
         fontWeight: '800',
     }
@@ -47,6 +58,16 @@ export default function Header() {
     const GotoGauge = () => {
         history.push('/WaterQuality')
     }
+
+    const [anchorElUser, setAnchorElUser] = useState(null);
+
+    const handleCloseUserMenu = () => {
+        setAnchorElUser(null);
+    };
+
+    const handleOpenUserMenu = (event) => {
+        setAnchorElUser(event.currentTarget);
+    };
 
     return (
         <>
@@ -62,9 +83,8 @@ export default function Header() {
                             >
                                 <Box >
                                     <Stack direction="row" alignItems="center">
-
                                         <Logo />
-                                        <Typography variant="h5" style={{
+                                        <Typography variant="h5" sx={{
                                             fontFamily: 'mitr',
                                             fontWeight: '800',
                                             color: '#7fb329'
@@ -74,24 +94,63 @@ export default function Header() {
                                         </Typography>
                                     </Stack>
                                 </Box>
+                                <Box sx={{ flexGrow: 0, display: { xs: 'none', md: 'flex' } }}>
+                                    <Stack direction="row" >
+                                        <Button sx={MenuStyle}
+                                            startIcon={<HomeIcon />} onClick={GotoHome}>หน้าแรก</Button>
+                                        <Button sx={MenuStyle}
+                                            startIcon={<OpacityIcon />} onClick={GotoGauge}>ตรวจสอบคุณภาพ</Button>
+                                        <Button sx={logOutStyle}
+                                            startIcon={<LogoutIcon />} onClick={SignOut}>ลงชื่อออก</Button>
+                                    </Stack>
+                                </Box>
+                                <Box sx={{ flexGrow: 0, display: { xs: 'flex', md: 'none' } }}>
+                                    <IconButton
+                                        size="large"
+                                        aria-label="account of current user"
+                                        aria-controls="menu-appbar"
+                                        aria-haspopup="true"
+                                        onClick={handleOpenUserMenu}
+                                        color="inherit"
+                                    >
+                                        <MenuIcon />
+                                    </IconButton>
 
-                                <Stack direction="row" divider={<Divider color="#03a9f4" orientation="vertical" flexItem />}>
-
-                                    <Button sx={MenuButton}
-                                        startIcon={<HomeIcon />} onClick={GotoHome}>หน้าแรก</Button>
-                                    <Button sx={MenuButton}
-                                        startIcon={<OpacityIcon />} onClick={GotoGauge}>ตรวจสอบคุณภาพ</Button>
-
-                                </Stack>
-                                <Box>
-                                    <Button
-                                        onClick={SignOut}
-                                        sx={{
-                                            fontFamily: 'mitr',
-                                            color: 'white'
+                                    <Menu
+                                        sx={{ mt: '45px' }}
+                                        anchorEl={anchorElUser}
+                                        anchorOrigin={{
+                                            vertical: 'top',
+                                            horizontal: 'right',
                                         }}
-                                        color="secondary"
-                                        startIcon={<LogoutIcon />} >ลงชื่อออก</Button>
+                                        keepMounted
+                                        transformOrigin={{
+                                            vertical: 'top',
+                                            horizontal: 'right',
+                                        }}
+                                        open={Boolean(anchorElUser)}
+                                        onClose={handleCloseUserMenu}
+                                    >
+
+                                        <MenuItem onClick={GotoHome}>
+                                            <ListItemIcon>
+                                                <HomeIcon />
+                                            </ListItemIcon>
+                                            <Typography textAlign="center">หน้าแรก</Typography>
+                                        </MenuItem>
+                                        <MenuItem onClick={GotoGauge}>
+                                            <ListItemIcon>
+                                                <OpacityIcon />
+                                            </ListItemIcon>
+                                            <Typography textAlign="center">ตรวจสอบคุณภาพ</Typography>
+                                        </MenuItem>
+                                        <MenuItem onClick={SignOut}>
+                                            <ListItemIcon>
+                                                <LogoutIcon />
+                                            </ListItemIcon>
+                                            <Typography textAlign="center">ลงชื่อออก</Typography>
+                                        </MenuItem>
+                                    </Menu>
                                 </Box>
                             </Grid>
                         </Toolbar>

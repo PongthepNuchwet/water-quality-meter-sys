@@ -22,9 +22,10 @@ export default function ResultTree() {
                         {
                             plants.map((data) => {
                                 if (pH >= data.pHMin && pH <= data.pHMax) {
+                                // if (pH) {
                                     return (
                                         <Grow in={true} key={data.id}>
-                                            <Grid item sm={12} md={6} lg={3} xl={2} >
+                                            <Grid item xs={12} md={6} lg={3} xl={2} >
                                                 <Card sx={{ width: '100%', background: '#212332' }} >
                                                     <CardMedia component="img"
                                                         height="90px"

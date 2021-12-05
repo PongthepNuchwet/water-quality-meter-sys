@@ -18,8 +18,8 @@ export default function Home() {
         <>
             <Box sx={{
                 background: '#212332',
-                height: '100vh',
-                paddingBottom: '20px'
+                paddingBottom: '20px',
+                minHeight:'100vh'
             }}>
                 <Stack spacing={1} >
                     <Header />
@@ -28,6 +28,34 @@ export default function Home() {
                     </Box>
                     <Box >
                         <Container>
+                            <Box sx={style}>
+                                <Typography variant="h6" sx={{ fontFamily: 'Sarabun', color: '#03a9f4', display: 'inline' }}>ระบบตรวจสอบคุณภาพน้ำเพื่อรดน้ำต้นไม้ </Typography>
+                                <Typography variant="body1" sx={{ fontFamily: 'Sarabun', display: 'inline' }}> เป็นระบบ</Typography>
+                            </Box>
+                            <Box sx={style}>
+                                <Typography variant="h6" sx={{ fontFamily: 'Sarabun', color: '#03a9f4', display: 'inline' }}>ระบบตรวจสอบคุณภาพน้ำเพื่อรดน้ำต้นไม้ </Typography>
+                                <Typography variant="body1" sx={{ fontFamily: 'Sarabun', display: 'inline' }}> เป็นระบบ</Typography>
+                            </Box>
+                            <Box sx={style}>
+                                <Typography variant="h6" sx={{ fontFamily: 'Sarabun', color: '#03a9f4', display: 'inline' }}>ระบบตรวจสอบคุณภาพน้ำเพื่อรดน้ำต้นไม้ </Typography>
+                                <Typography variant="body1" sx={{ fontFamily: 'Sarabun', display: 'inline' }}> เป็นระบบ</Typography>
+                            </Box>
+                            <Box sx={style}>
+                                <Typography variant="h6" sx={{ fontFamily: 'Sarabun', color: '#03a9f4', display: 'inline' }}>ระบบตรวจสอบคุณภาพน้ำเพื่อรดน้ำต้นไม้ </Typography>
+                                <Typography variant="body1" sx={{ fontFamily: 'Sarabun', display: 'inline' }}> เป็นระบบ</Typography>
+                            </Box>
+                            <Box sx={style}>
+                                <Typography variant="h6" sx={{ fontFamily: 'Sarabun', color: '#03a9f4', display: 'inline' }}>ระบบตรวจสอบคุณภาพน้ำเพื่อรดน้ำต้นไม้ </Typography>
+                                <Typography variant="body1" sx={{ fontFamily: 'Sarabun', display: 'inline' }}> เป็นระบบ</Typography>
+                            </Box>
+                            <Box sx={style}>
+                                <Typography variant="h6" sx={{ fontFamily: 'Sarabun', color: '#03a9f4', display: 'inline' }}>ระบบตรวจสอบคุณภาพน้ำเพื่อรดน้ำต้นไม้ </Typography>
+                                <Typography variant="body1" sx={{ fontFamily: 'Sarabun', display: 'inline' }}> เป็นระบบ</Typography>
+                            </Box>
+                            <Box sx={style}>
+                                <Typography variant="h6" sx={{ fontFamily: 'Sarabun', color: '#03a9f4', display: 'inline' }}>ระบบตรวจสอบคุณภาพน้ำเพื่อรดน้ำต้นไม้ </Typography>
+                                <Typography variant="body1" sx={{ fontFamily: 'Sarabun', display: 'inline' }}> เป็นระบบ</Typography>
+                            </Box>
                             <Box sx={style}>
                                 <Typography variant="h6" sx={{ fontFamily: 'Sarabun', color: '#03a9f4', display: 'inline' }}>ระบบตรวจสอบคุณภาพน้ำเพื่อรดน้ำต้นไม้ </Typography>
                                 <Typography variant="body1" sx={{ fontFamily: 'Sarabun', display: 'inline' }}> เป็นระบบ</Typography>
