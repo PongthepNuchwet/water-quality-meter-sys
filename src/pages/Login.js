@@ -1,6 +1,10 @@
-import { createRef } from 'react';
+import React, { useEffect, createRef } from "react";
 import { useDispatch } from 'react-redux'
-import { check } from '../store/Auth'
+import { signIn, error } from '../store/Auth'
+
+import { useNavigate } from "react-router-dom";
+
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
 
 import Box from '@mui/material/Box';
 import Container from '@mui/material/Container';
@@ -13,14 +17,21 @@ import LoginIcon from '@mui/icons-material/Login';
 import LottieWaterRipple from '../lottie/WaterRipple'
 import LottieRegister from '../lottie/Register'
 
-
 import Header from '../component/login/Header'
 import Input from "../component/login/TextField"
 import LoginSnackbar from '../component/login/LoginSnackbar'
 
 
-
 const Login = () => {
+  let navigate = useNavigate();
+
+  useEffect(() => {
+    let authToken = sessionStorage.getItem('Token')
+    if (authToken) {
+      navigate('/home')
+    }
+  }, [])
+
 
   const dispatch = useDispatch();
   const username = createRef()
@@ -30,11 +41,24 @@ const Login = () => {
     background: 'linear-gradient(45deg, #007e05bd 30%, #278b0b 90%)',
     fontFamily: 'mitr'
   })
+
+  const showError = () => {
+    dispatch(error())
+  }
+  const success = () => {
+    dispatch(signIn())
+  }
+
   function onClick() {
-    dispatch(check({
-      username: username.current.value,
-      password: password.current.value
-    }))
+    const authentication = getAuth();
+    signInWithEmailAndPassword(authentication, username.current.value, password.current.value)
+      .then((response) => {
+        sessionStorage.setItem('Token', response._tokenResponse.refreshToken)
+        navigate('/home')
+        success()
+      }).catch((error) => {
+        showError()
+      })
   }
 
   return (
@@ -79,7 +103,7 @@ const Login = () => {
           >
             <Container maxWidth="sm" >
               <Header />
-              <Box sx={{height:'250px'}} >
+              <Box sx={{ height: '250px' }} >
                 <LottieRegister />
               </Box>
 

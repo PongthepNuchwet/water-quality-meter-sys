@@ -4,8 +4,6 @@ export const Auth = createSlice({
     name: 'Auth',
     initialState: {
         status: false,
-        username: 'admin',
-        password: 'admin',
         warning: false,
         snackbar: false
     },
@@ -18,16 +16,15 @@ export const Auth = createSlice({
             state.warning = false
             state.snackbar = false
         },
-        check: (state, data) => {
-            if (data.payload.username === state.username && data.payload.password === state.password) {
-                state.status = true
-            } else {
-                state.warning = true
-                state.snackbar = true
-            }
+        signIn: state => {
+            state.status = true
         },
+        error: state => {
+            state.warning = true
+            state.snackbar = true
+        }
     }
 })
 
-export const { closeSnackbar, signOut, check } = Auth.actions
+export const { closeSnackbar, signOut, signIn, error } = Auth.actions
 export default Auth.reducer

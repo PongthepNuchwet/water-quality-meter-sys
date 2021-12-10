@@ -9,7 +9,6 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import LogoutIcon from '@mui/icons-material/Logout';
 import Stack from '@mui/material/Stack'
-import Divider from '@mui/material/Divider';
 import OpacityIcon from '@mui/icons-material/Opacity';
 import HomeIcon from '@mui/icons-material/Home';
 import IconButton from '@mui/material/IconButton';
@@ -19,17 +18,19 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import MenuIcon from '@mui/icons-material/Menu';
 
 import { useDispatch } from 'react-redux'
-import { useHistory } from "react-router-dom";
+import { useNavigate  } from "react-router-dom";
 import { signOut } from '../../store/Auth'
 import Logo from '../Logo'
 
 export default function Header() {
 
     const dispatch = useDispatch()
-    const history = useHistory()
+    const navigate  = useNavigate()
 
     const SignOut = (event, reason) => {
         dispatch(signOut())
+        sessionStorage.removeItem('Token');
+        navigate('/Login')
     };
 
     const theme = createTheme({
@@ -53,10 +54,10 @@ export default function Header() {
     }
 
     const GotoHome = () => {
-        history.push('/home')
+        navigate('/home')
     }
     const GotoGauge = () => {
-        history.push('/WaterQuality')
+        navigate('/WaterQuality')
     }
 
     const [anchorElUser, setAnchorElUser] = useState(null);

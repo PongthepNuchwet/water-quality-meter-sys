@@ -5,7 +5,18 @@ import LottieRegister from '../lottie/Register'
 import Typography from "@mui/material/Typography";
 import Container from '@mui/material/Container';
 
+import React, { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
+
 export default function Home() {
+    let navigate = useNavigate();
+
+    useEffect(() => {
+        let authToken = sessionStorage.getItem('Token')
+        if (!authToken) {
+            navigate('/login')
+        }
+    }, [])
 
     const style = {
         background: '#2a2d3e',
@@ -19,7 +30,7 @@ export default function Home() {
             <Box sx={{
                 background: '#212332',
                 paddingBottom: '20px',
-                minHeight:'100vh'
+                minHeight: '100vh'
             }}>
                 <Stack spacing={1} >
                     <Header />

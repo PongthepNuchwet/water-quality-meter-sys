@@ -1,23 +1,24 @@
 import {
-  BrowserRouter as Router, Switch, Route, Redirect
+  BrowserRouter as Router,
+  Routes,
+  Route,
 } from "react-router-dom";
 import React, { useEffect } from "react";
 import { useSelector, useDispatch, } from 'react-redux'
-import { setPH, setTemperature, setOxygen, setTime, setPHList, setOxygenList,setTempList} from './store/Gauge'
+import { setPH, setTemperature, setOxygen, setTime, setPHList, setOxygenList, setTempList } from './store/Gauge'
 
 import Login from './pages/Login'
 import WaterQuality from './pages/WaterQuality'
 import NotFound from './pages/NotFound'
 import Home from './pages/Home'
 
-import myFirebase from './firebase/firebase-config'
+import { myFirebase } from './firebase/firebase-config'
 import { getDatabase, ref, onValue } from "firebase/database";
 
 
 
 export default function App() {
 
-  const user = useSelector((state) => state.auth.status)
   const dispatch = useDispatch()
   useEffect(() => {
     const db = getDatabase(myFirebase)
@@ -38,7 +39,7 @@ export default function App() {
       const temperature = Object.keys(data.temperature).map(key => data.temperature[key])
       const oxy = Object.keys(data.oxygen).map(key => data.oxygen[key])
 
-      console.log(temperature,typeof(temperature))
+      console.log(temperature, typeof (temperature))
       dispatch(setPHList(pH))
       dispatch(setOxygenList(oxy))
       dispatch(setTempList(oxy))
@@ -49,23 +50,13 @@ export default function App() {
   return (
 
     <Router>
-      <Switch>
-        <Route exact path="/">
-          {user ? <Redirect to="/home" /> : <Redirect to="/login" />}
-        </Route>
-        <Route path="/login">
-          {user ? <Redirect to="/home" /> : <Login />}
-        </Route>
-        <Route path="/home">
-          {user ? <Home /> : <Redirect to="/login" />}
-        </Route>
-        <Route path="/WaterQuality">
-          {user ? <WaterQuality /> : <Redirect to="/login" />}
-        </Route>
-        <Route path="*">
-          <NotFound />
-        </Route>
-      </Switch>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route index path="/Login" element={<Login />} />
+        <Route path="/Home" element={<Home />} />
+        <Route path="/WaterQuality" element={<WaterQuality />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
     </Router>
   );
 }
