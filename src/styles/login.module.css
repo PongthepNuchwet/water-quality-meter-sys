@@ -1,0 +1,38 @@
+.institution {
+    position: fixed;
+    left: 0;
+    top: 0;
+    background: white;
+    z-index: tooltip;
+    padding: 5px;
+    font-family: 'mitr';
+    border-bottom-right-radius: 10px
+}
+
+.bgWater {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    flex-grow: 1;
+    min-height: 100vh;
+    font-family: 'mitr';
+    background-color: #03a9f4;
+}
+
+.cardLogin {
+    width: 480px;
+    background-color: #2a2d3e;
+    padding: 20px 10px;
+    border-radius: 10px;
+    box-shadow: 1;
+    z-index: 700;;
+}
+
+.LottieRegister {
+    height: 250px;
+}
+
+.mitr {
+    font-family: 'mitr',
+}
+

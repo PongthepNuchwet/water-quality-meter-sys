@@ -1,0 +1,48 @@
+.background {
+    background-color: #212332;
+    padding-bottom: 20px;
+    min-height: 100vh
+}
+
+.box {
+    background: #2a2d3e;
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: white;
+}
+
+.mitr {
+    font-family: 'mitr';
+}
+
+.sarabun {
+    font-family: 'Sarabun';
+}
+
+.inline {
+    display: inline;
+}
+
+.title {
+    font-family: 'mitr';
+    display: inline;
+    color: #7fb329;
+    font-weight: 600;
+}
+
+.content {
+    text-indent: 1em;
+    font-family: 'sarabun';
+}
+
+.img {
+    height: 300px;
+    width: auto;
+ }
+
+@media screen and (max-width: 700px) {
+    .img {
+       width: 100%;
+       height: auto;
+    }
+ }

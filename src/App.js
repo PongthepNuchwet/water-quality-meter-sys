@@ -15,8 +15,6 @@ import Home from './pages/Home'
 import { myFirebase } from './firebase/firebase-config'
 import { getDatabase, ref, onValue } from "firebase/database";
 
-
-
 export default function App() {
 
   const dispatch = useDispatch()

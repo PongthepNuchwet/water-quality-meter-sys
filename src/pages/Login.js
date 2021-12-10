@@ -1,4 +1,4 @@
-import React, { useEffect, createRef } from "react";
+import { useEffect, createRef, useState } from "react";
 import { useDispatch } from 'react-redux'
 import { signIn, error } from '../store/Auth'
 
@@ -13,6 +13,10 @@ import Button from '@mui/material/Button';
 import { styled } from '@mui/styles';
 import Zoom from '@mui/material/Zoom';
 import LoginIcon from '@mui/icons-material/Login';
+import CircularProgress from '@mui/material/CircularProgress';
+import { green } from '@mui/material/colors';
+
+
 
 import LottieWaterRipple from '../lottie/WaterRipple'
 import LottieRegister from '../lottie/Register'
@@ -21,8 +25,14 @@ import Header from '../component/login/Header'
 import Input from "../component/login/TextField"
 import LoginSnackbar from '../component/login/LoginSnackbar'
 
+import styles from "../styles/login.module.css"
+
 
 const Login = () => {
+
+  const [loading, setLoading] = useState(false);
+  const [disable, setDisable] = useState(false);
+
   let navigate = useNavigate();
 
   useEffect(() => {
@@ -50,6 +60,8 @@ const Login = () => {
   }
 
   function onClick() {
+    setLoading(true)
+    setDisable(true)
     const authentication = getAuth();
     signInWithEmailAndPassword(authentication, username.current.value, password.current.value)
       .then((response) => {
@@ -58,64 +70,50 @@ const Login = () => {
         success()
       }).catch((error) => {
         showError()
+        setLoading(false)
+        setDisable(false)
       })
+
   }
 
   return (
     <>
       <CssBaseline />
-      <Box sx={{
-        position: 'fixed',
-        left: '0',
-        top: '0',
-        background: 'white',
-        zIndex: 'tooltip',
-        p: '5px',
-        fontFamily: 'mitr',
-        borderBottomRightRadius: '10px'
-
-      }}>
+      <Box className={styles.institution}>
         สถาบันเทคโนโลยีจิตรลดา
       </Box>
       <Box
         component="main"
-        sx={{
-          justifyContent: 'center',
-          alignItems: 'center',
-          display: 'flex',
-          flexGrow: 1,
-          minHeight: '100vh',
-          fontFamily: 'mitr',
-          backgroundColor: '#03a9f4',
-        }}
+        className={styles.bgWater}
       >
         <LottieWaterRipple />
         <Zoom in={true}>
-          <Box
-            sx={{
-              width: '500px',
-              backgroundColor: '#2a2d3e',
-              padding: '20px 10px',
-              borderRadius: 3,
-              boxShadow: 1,
-              zIndex: 'tooltip'
-            }}
-          >
+          <Box className={styles.cardLogin}>
             <Container maxWidth="sm" >
               <Header />
-              <Box sx={{ height: '250px' }} >
+              <Box className={styles.LottieRegister} >
                 <LottieRegister />
               </Box>
 
               <Input
                 username={username}
                 password={password} />
-              <Box sx={{
-                fontFamily: 'mitr',
-                py: 1
-              }}>
+              <Box className={styles.mitr} sx={{ position: 'relative' }}>
                 <LoginSnackbar />
-                <MyButton startIcon={<LoginIcon />} onClick={onClick} variant="contained" size="large" color="primary" fullWidth > เข้าสู่ระบบ </MyButton>
+                <MyButton startIcon={<LoginIcon />} disabled={disable} onClick={onClick} variant="contained" size="large" color="primary" fullWidth > เข้าสู่ระบบ </MyButton>
+                {loading && (
+                  <CircularProgress
+                    size={24}
+                    sx={{
+                      color: green[50],
+                      position: 'absolute',
+                      top: '50%',
+                      left: '50%',
+                      marginTop: '-12px',
+                      marginLeft: '-12px',
+                    }}
+                  />
+                )}
               </Box>
             </Container>
           </Box>
