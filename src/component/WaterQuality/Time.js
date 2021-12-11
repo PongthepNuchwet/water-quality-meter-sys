@@ -7,7 +7,6 @@ import Typography from "@mui/material/Typography";
 import Test from './Test'
 
 function Th(month) {
-    console.log(month)
     let th = ''
     switch (month) {
         case 0: th = 'มกราคม'; break;
@@ -47,7 +46,6 @@ export default function Time() {
         setshow(!show)
     }
     const dateTime = useSelector((state) => state.gauge.time)
-    console.log(dateTime)
     const timeStamp = new Date(dateTime * 1000)
 
     return (

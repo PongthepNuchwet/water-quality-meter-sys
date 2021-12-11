@@ -37,10 +37,9 @@ export default function App() {
       const temperature = Object.keys(data.temperature).map(key => data.temperature[key])
       const oxy = Object.keys(data.oxygen).map(key => data.oxygen[key])
 
-      console.log(temperature, typeof (temperature))
       dispatch(setPHList(pH))
       dispatch(setOxygenList(oxy))
-      dispatch(setTempList(oxy))
+      dispatch(setTempList(temperature))
     });
 
   }, []);

@@ -15,8 +15,7 @@ import Zoom from '@mui/material/Zoom';
 import LoginIcon from '@mui/icons-material/Login';
 import CircularProgress from '@mui/material/CircularProgress';
 import { green } from '@mui/material/colors';
-
-
+import Stack from '@mui/material/Stack';
 
 import LottieWaterRipple from '../lottie/WaterRipple'
 import LottieRegister from '../lottie/Register'
@@ -80,7 +79,15 @@ const Login = () => {
     <>
       <CssBaseline />
       <Box className={styles.institution}>
-        สถาบันเทคโนโลยีจิตรลดา
+        <Stack direction="row"
+          justifyContent="center"
+          alignItems="center"
+          spacing={2} >
+          <img src="cdti.png" height="50px" alt="cdti" />
+          
+          {/* <Typography variant="body1" sx={{ fontFamily: 'Sarabun', display: 'inline' }}>สถาบันเทคโนโลยีจิตรลดา</Typography> */}
+        </Stack>
+
       </Box>
       <Box
         component="main"
@@ -97,7 +104,9 @@ const Login = () => {
 
               <Input
                 username={username}
-                password={password} />
+                password={password}
+                onClick={onClick}
+                 />
               <Box className={styles.mitr} sx={{ position: 'relative' }}>
                 <LoginSnackbar />
                 <MyButton startIcon={<LoginIcon />} disabled={disable} onClick={onClick} variant="contained" size="large" color="primary" fullWidth > เข้าสู่ระบบ </MyButton>

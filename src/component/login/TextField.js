@@ -1,11 +1,11 @@
-import SupervisedUserCircleIcon from '@mui/icons-material/SupervisedUserCircle';
 import InputAdornment from '@mui/material/InputAdornment';
 import PasswordIcon from '@mui/icons-material/Password';
+import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import TextField from "@mui/material/TextField"
 import { useSelector } from 'react-redux'
 import { createMuiTheme } from "@material-ui/core/styles";
 import { ThemeProvider } from '@mui/material/styles';
-export default function Input({ username, password }) {
+export default function Input({ username, password, onClick }) {
 
     const warning = useSelector((state) => state.auth.warning)
 
@@ -18,14 +18,20 @@ export default function Input({ username, password }) {
             }
         }
     });
+    const handleKeyPress = (event) => {
+        if (event.key === 'Enter') {
+            onClick()
+        }
+    }
     return (
         <>
             <ThemeProvider theme={theme}>
                 <TextField
+                    onKeyPress={handleKeyPress}
                     color='primary'
                     autoFocus={true}
                     error={warning}
-                    label="Username"
+                    label="Emali"
                     inputRef={username}
                     variant="outlined"
                     fullWidth={true}
@@ -35,12 +41,13 @@ export default function Input({ username, password }) {
                     InputProps={{
                         startAdornment: (
                             <InputAdornment position="start">
-                                <SupervisedUserCircleIcon />
+                                <MailOutlineIcon />
                             </InputAdornment>
                         ),
                     }} />
 
                 <TextField
+                    onKeyPress={handleKeyPress}
                     autoComplete=''
                     label="Password"
                     error={warning}

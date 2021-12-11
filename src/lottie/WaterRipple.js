@@ -19,10 +19,10 @@ export default function LottieWaterRipple({ url }) {
         <>
             <div ref={container} style={{ 
                 position: 'absolute',
-                width: '100vw',
+                width: '100%',
                 height: 'auto',
-                bottom: '0px',
-                left: '0px',
+                bottom: '-7px',
+                left: '0',
                 overflow: 'hidden',
             }}></div>
         </>

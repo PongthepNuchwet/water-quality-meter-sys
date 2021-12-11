@@ -4,7 +4,7 @@
     top: 0;
     background: white;
     z-index: tooltip;
-    padding: 5px;
+    padding: 5px 10px;
     font-family: 'mitr';
     border-bottom-right-radius: 10px
 }
@@ -17,6 +17,8 @@
     min-height: 100vh;
     font-family: 'mitr';
     background-color: #03a9f4;
+    padding: 0;
+    overflow: hidden;
 }
 
 .cardLogin {
