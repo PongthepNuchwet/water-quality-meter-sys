@@ -16,14 +16,15 @@
     flex-grow: 1;
     min-height: 100vh;
     font-family: 'mitr';
-    background-color: #03a9f4;
+    background:radial-gradient(at center bottom, rgb(56, 189, 248), rgb(49, 46, 129));
     padding: 0;
     overflow: hidden;
 }
 
 .cardLogin {
     width: 480px;
-    background-color: #2a2d3e;
+    background: linear-gradient(rgb(55, 65, 81), rgb(17, 24, 39), rgb(0, 0, 0));
+    /* background-color: #2a2d3e; */
     padding: 20px 10px;
     border-radius: 10px;
     box-shadow: 1;

@@ -47,7 +47,7 @@ const Login = () => {
   const password = createRef()
 
   const MyButton = styled(Button)({
-    background: 'linear-gradient(45deg, #007e05bd 30%, #278b0b 90%)',
+    background: 'linear-gradient(to right, rgb(16, 185, 129), rgb(101, 163, 13))',
     fontFamily: 'mitr'
   })
 
