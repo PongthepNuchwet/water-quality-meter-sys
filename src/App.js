@@ -4,7 +4,7 @@ import {
   Route,
 } from "react-router-dom";
 import React, { useEffect } from "react";
-import { useSelector, useDispatch, } from 'react-redux'
+import { useDispatch, } from 'react-redux'
 import { setPH, setTemperature, setOxygen, setTime, setPHList, setOxygenList, setTempList } from './store/Gauge'
 
 import Login from './pages/Login'

@@ -84,10 +84,7 @@ const Login = () => {
           alignItems="center"
           spacing={2} >
           <img src="cdti.png" height="50px" alt="cdti" />
-          
-          {/* <Typography variant="body1" sx={{ fontFamily: 'Sarabun', display: 'inline' }}>สถาบันเทคโนโลยีจิตรลดา</Typography> */}
         </Stack>
-
       </Box>
       <Box
         component="main"
@@ -101,12 +98,11 @@ const Login = () => {
               <Box className={styles.LottieRegister} >
                 <LottieRegister />
               </Box>
-
               <Input
                 username={username}
                 password={password}
                 onClick={onClick}
-                 />
+              />
               <Box className={styles.mitr} sx={{ position: 'relative' }}>
                 <LoginSnackbar />
                 <MyButton startIcon={<LoginIcon />} disabled={disable} onClick={onClick} variant="contained" size="large" color="primary" fullWidth > เข้าสู่ระบบ </MyButton>
