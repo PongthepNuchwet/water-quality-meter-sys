@@ -18,14 +18,14 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import MenuIcon from '@mui/icons-material/Menu';
 
 import { useDispatch } from 'react-redux'
-import { useNavigate  } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { signOut } from '../../store/Auth'
 import Logo from '../Logo'
 
-export default function Header() {
+export default function Header(props) {
 
     const dispatch = useDispatch()
-    const navigate  = useNavigate()
+    const navigate = useNavigate()
 
     const SignOut = (event, reason) => {
         dispatch(signOut())

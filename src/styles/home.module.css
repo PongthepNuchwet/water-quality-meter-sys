@@ -1,6 +1,80 @@
-.background {
+.bgCard{
+    background-color: #2a2d3e;
+    max-width: 225;
+}
+
+.nameCard {
+    color: white;
+    font-family: 'mitr' !important;
+}
+
+.sec1 {
+    padding: 40px 0;
+}
+
+.sec2 {
+    padding: 40px 0;
     background-color: #212332;
-    padding-bottom: 20px;
+}
+.sec3 {
+    padding: 40px 0;
+    background-color: #2a2d3e;
+}
+
+.content {
+    color: white;
+    font-family: 'sarabun' !important;
+    text-indent: 2em;
+}
+
+.sec2Title {
+    text-align: center;
+    font-family: 'mitr' !important;
+    color: #4ea9f4;
+    /* color: #7fb329; */
+    font-weight: 600;
+}
+.sec2Title2 {
+    text-align: center;
+    font-family: 'mitr' !important;
+    color: #4ea9f4;
+    font-weight: 600;
+}
+.sec4Title {
+    text-align: center;
+    font-family: 'mitr' !important;
+    color: #4ea9f4;
+    font-weight: 600;
+}
+.sec2TitleBox {
+    width: 500px;
+}
+
+.sec3TitleBox {
+    width: 1000px;
+}
+.sec4TitleBox {
+    width: 200px;
+}
+
+.title {
+    font-family: 'mitr' !important;
+    display: inline;
+    color: #7fb329;
+    font-weight: 600;
+}
+
+.imgApp {
+    width: 100%;
+}
+
+.imgpH {
+    width: 100%;
+}
+
+.background {
+    background-color: #2a2d3e;
+    /* background-color: #212332; */
     min-height: 100vh
 }
 
@@ -23,26 +97,14 @@
     display: inline;
 }
 
-.title {
-    font-family: 'mitr';
-    display: inline;
-    color: #7fb329;
-    font-weight: 600;
-}
-
-.content {
-    text-indent: 1em;
-    font-family: 'sarabun';
-}
-
 .img {
     height: 300px;
     width: auto;
- }
+}
 
 @media screen and (max-width: 700px) {
     .img {
-       width: 100%;
-       height: auto;
+        width: 100%;
+        height: auto;
     }
- }
+}

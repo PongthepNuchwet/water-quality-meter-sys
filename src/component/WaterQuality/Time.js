@@ -28,13 +28,13 @@ function Th(month) {
 }
 
 function FormateDate({ timeStamp }) {
-    const year = timeStamp.getFullYear() + 543
-    const month = timeStamp.getMonth();
-    const Fmonth = Th(month)
-    const date = timeStamp.getDate();
-    const hour = timeStamp.getHours();
-    const minute = timeStamp.getMinutes();
-    const seconds = timeStamp.getSeconds();
+    let year = timeStamp.getFullYear() + 543
+    let month = timeStamp.getMonth();
+    let Fmonth = Th(month)
+    let date = timeStamp.getDate();
+    let hour = timeStamp.getHours();
+    let minute = timeStamp.getMinutes();
+    let seconds = timeStamp.getSeconds();
     return `${hour}:${minute}:${seconds} น. ${date} ${Fmonth} ${year}`
 }
 
@@ -51,8 +51,8 @@ export default function Time() {
     return (
         <>
             <Grid container>
-                <Grid item xs={6}>{show && <Test />}</Grid>
-                <Grid item xs={6}>
+                <Grid item xs={12} md={6}>{show && <Test />}</Grid>
+                <Grid item xs={12} md={6}>
                     <Typography onClick={onShows} align='right' variant='body2' sx={{ color: 'white', fontFamily: 'mitr' }} >
                         ข้อมูลล่าสุด : {dateTime !== 0 ? <FormateDate timeStamp={timeStamp} /> : '-'}
                     </Typography>
