@@ -1,5 +1,5 @@
-.bgCard{
-    background-color: #2a2d3e;
+.bgCard {
+    background-color: #2a2d3e !important;
     max-width: 225;
 }
 
@@ -8,44 +8,35 @@
     font-family: 'mitr' !important;
 }
 
-.sec1 {
-    padding: 40px 0;
+.sec1Title {
+    font-family: 'mitr' !important;
+    display: inline;
+    color: #7fb329;
+    font-weight: 600;
 }
 
-.sec2 {
-    padding: 40px 0;
-    background-color: #212332;
+.section:nth-child(odd) {
+    background: #212332;
 }
-.sec3 {
-    padding: 40px 0;
-    background-color: #2a2d3e;
+
+.section:nth-child(even) {
+    background: #2a2d3e;
 }
 
 .content {
+    line-height: 1.8 ;
     color: white;
     font-family: 'sarabun' !important;
     text-indent: 2em;
 }
 
-.sec2Title {
-    text-align: center;
-    font-family: 'mitr' !important;
-    color: #4ea9f4;
-    /* color: #7fb329; */
-    font-weight: 600;
-}
-.sec2Title2 {
+.secTitle {
     text-align: center;
     font-family: 'mitr' !important;
     color: #4ea9f4;
     font-weight: 600;
 }
-.sec4Title {
-    text-align: center;
-    font-family: 'mitr' !important;
-    color: #4ea9f4;
-    font-weight: 600;
-}
+
 .sec2TitleBox {
     width: 500px;
 }
@@ -53,15 +44,9 @@
 .sec3TitleBox {
     width: 1000px;
 }
+
 .sec4TitleBox {
     width: 200px;
-}
-
-.title {
-    font-family: 'mitr' !important;
-    display: inline;
-    color: #7fb329;
-    font-weight: 600;
 }
 
 .imgApp {
@@ -102,9 +87,57 @@
     width: auto;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (min-width: 1px) {
+    .secTitle {
+        font-size: 20px !important;
+    }
+    .sec1Title {
+        font-size: 30px !important;
+    }
+
+    .section {
+        padding: 10px 0;
+    }
+
     .img {
         width: 100%;
         height: auto;
     }
+}
+
+@media screen and (min-width: 641px) {
+    .secTitle {
+        font-size: 25px !important;
+    }
+    .sec1Title {
+        font-size: 40px !important;
+    }
+
+    .section {
+        padding: 20px 0;
+    }
+
+    .img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+@media screen and (min-width: 1008px) {
+    .secTitle {
+        font-size: 30px !important;
+    }
+    .sec1Title {
+        font-size: 50px !important;
+    }
+
+    .section {
+        padding: 40px 0;
+    }
+
+    .img {
+        width: 100%;
+        height: auto;
+    }
+
 }
