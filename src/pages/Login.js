@@ -39,7 +39,7 @@ const Login = () => {
     if (authToken) {
       navigate('/home')
     }
-  }, [])
+  })
 
 
   const dispatch = useDispatch();

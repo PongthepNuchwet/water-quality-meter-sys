@@ -3,21 +3,24 @@ import PasswordIcon from '@mui/icons-material/Password';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import TextField from "@mui/material/TextField"
 import { useSelector } from 'react-redux'
-import { createMuiTheme } from "@material-ui/core/styles";
-import { ThemeProvider } from '@mui/material/styles';
+
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 export default function Input({ username, password, onClick }) {
 
     const warning = useSelector((state) => state.auth.warning)
 
-    const theme = createMuiTheme({
+    const theme = createTheme({
         palette: {
-            type: "dark",
+            mode: 'dark',
             primary: {
                 main: '#03a9f4',
                 contrastText: '#fff',
-            }
-        }
+            },
+            tonalOffset: 0.2
+        },
     });
+
+
     const handleKeyPress = (event) => {
         if (event.key === 'Enter') {
             onClick()
@@ -49,6 +52,7 @@ export default function Input({ username, password, onClick }) {
                 <TextField
                     onKeyPress={handleKeyPress}
                     autoComplete=''
+                    color='primary'
                     label="Password"
                     error={warning}
                     InputProps={{

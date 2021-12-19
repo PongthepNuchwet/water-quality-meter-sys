@@ -16,7 +16,7 @@ export default function WaterQuality() {
         if (!authToken) {
             navigate('/login')
         }
-    }, [])
+    },)
 
   return (
     <>
