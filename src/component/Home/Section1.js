@@ -27,7 +27,8 @@ export default function Section1() {
                                 justifyContent="center"
                                 alignItems="center"
                                 spacing={2} >
-                                <Video />
+                                <img src='home/video.png' style={{width:'80%'}} alt='Video'/>
+                                {/* <Video /> */}
                             </Stack>
                         </Box>
                     </Grid>

@@ -22,7 +22,7 @@ export default function WaterQuality() {
     <>
       <Box sx={{
         background: '#212332',
-        height: 'auto',
+        minHeight: '100vh',
         paddingBottom: '20px'
       }}>
         <Stack spacing={1} >
