@@ -5,35 +5,34 @@ import Typography from "@mui/material/Typography";
 import Container from '@mui/material/Container';
 import Divider from '@mui/material/Divider';
 
+
 import styles from '../../styles/home.module.css'
+
 export default function Section3() {
+
+
+
     return (
         <Box className={`${styles.section}`}>
             <Container>
                 <Stack spacing={1}>
-                    <Stack
-                        direction="row"
-                        justifyContent="center"
-                        alignItems="center"
-                    >
-                        <Box className={styles.sec3TitleBox} >
-                            <Typography variant="h4" className={styles.secTitle}>ค่า pH (Positive potential of the Hydrogen ions) มีผลอย่างไร</Typography>
-                            <Divider color="white" sx={{ mb: '1em' }} />
-                        </Box>
-                    </Stack>
                     <Grid container
                         direction="row"
                         justifyContent="center"
                         alignItems="center"
                     >
                         <Grid item xs={12} md={6}>
-                            <Box sx={{p:'10px'}}>
-                                <Typography variant="body1" className={styles.content} >   หากค่า pH มีความเหมาะสมกับพืชก็จะสามารถที่จะดูดธาตุอาหารเข้าไปใช้ได้โดยง่ายและมีประสิทธิ โดยทั่วไปค่าความเป็นกรด-ด่างที่ความเหมาะสมคือค่าช่วงที่อยู่ในความเป็นกรด ทั้งนี้ขึ้นอยู่กับพืชแต่ละชนิดด้วย ยิ่งเป็นกรดมากเท่าใดยิ่งจะทำให้พืชดูดซึมสารอาหารได้ดียิ่งขึ้น
-                                </Typography>
+                            <Box sx={{ p: '10px' }}>
+                                <Stack spacing={3}>
+                                    <Typography variant="h6" className={styles.content} >ค่า pH คือการวัดความเข้มข้นของไฮโดรเจนไอออนซึ่งเป็นการวัดความป็นกรด-ด่างหรือเบสของสารละลาย ของเหลวหรือน้ำ โดยที่ระดับพีเอช มักจะอยู่ในช่วง 0 ถึง 14 </Typography>
+                                    <Typography variant="h6" className={styles.content} >น้อยกว่า 7 จะมีสภาพเป็นกรด หากมีความเป็นกรดสูง ธาตุอาหารของพืชจะละลายน้ำได้ดี พืชดูดไปใช้ได้ง่าย แต่รากพืชจะถูกกัดกร่อน และรากจะอ่อนแอ ส่งผลให้เชื้อโรคเข้าทำลายได้ง่าย ของเหลวหรือน้ำที่มีค่าพีเอช </Typography>
+                                    <Typography variant="h6" className={styles.content} >มากกว่า 7 จะเป็นด่างหรือเบสหากมีความเป็นด่างสูงธาตุอาหารพืชจะตกตะกอนจนพืชไม่สามารถดูดซึมได้ส่งผลให้พืชมีอาการแคระแกรนใบเหลือง</Typography>
+                                    <Typography variant="h6" className={styles.content} >ส่วนระดับค่าพีเอช ที่ 7.0 หมายถึง “เป็นกลาง” </Typography>
+                                </Stack>
                             </Box>
                         </Grid>
                         <Grid item xs={12} md={6}>
-                            <Box sx={{p:'10px'}}>
+                            <Box sx={{ p: '10px' }}>
                                 <Stack direction="row"
                                     justifyContent="center"
                                     alignItems="center"
@@ -44,32 +43,16 @@ export default function Section3() {
 
                         </Grid>
                         <Grid item xs={12} md={6} >
-                            <Box sx={{p:'10px'}}>
-                                <Stack direction="row"
-                                    justifyContent="center"
-                                    alignItems="center"
-                                    spacing={2} >
-                                    <img src="home/2.jpg" className={styles.img} width="100%" alt='' />
-                                </Stack>
+                            <Box sx={{ p: '10px' }}>
+                            <img src="home/DO.png" className={styles.img} width="100%" alt='' />
                             </Box>
                         </Grid>
                         <Grid item xs={12} md={6}>
-                            <Box sx={{p:'10px'}}>
+                            <Box sx={{ p: '10px' }}>
                                 <Stack spacing={3}>
-                                    <Typography variant="body1" className={styles.content} sx={{ fontFamily: 'Sarabun', color: 'white' }}>
-                                        การวัดค่าความเป็นกรด-ด่างโดยมีช่วงการวัดระหว่างค่า 0-14 มีค่ากลางที่ค่า pH 7  หากค่าต่ำกว่า pH 7 นับว่ามีความเป็นกรดและในทางกลับกันหากค่า pH มากกว่า 7 นั้นนับว่ามีค่าเป็นด่าง
-                                    </Typography>
-                                    <Typography variant="body1" className={styles.content} sx={{ fontFamily: 'Sarabun', color: 'white' }}>
-                                        ถ้าต่ำกว่า 7 สารจะเป็นกรด หากมีความเป็นกรดสูง ธาตุอาหารของพืชจะละลายน้ำได้ดี พืชดูดไปใช้ได้ง่าย แต่รากพืชจะถูกกัดกร่อน และรากจะอ่อนแอ ส่งผลให้เชื้อโรคเข้าทำลายได้ง่าย ในทางกลับกัน
-                                    </Typography>
-                                    <Typography variant="body1" className={styles.content} sx={{ fontFamily: 'Sarabun', color: 'white' }}>
-                                        ค่า pH ที่ต่ำกว่า 4 ไม่เหมาะสมในการใช้ปลูกพืชเนื่องจากว่ามีความเป็นกรดมากเกินไป
-                                        อาจทำให้รากของพืช โดนกัดกร่อนและเน่าได้ง่าย
-                                    </Typography>
-                                    <Typography variant="body1" className={styles.content} sx={{ fontFamily: 'Sarabun', color: 'white' }}>
-                                        ถ้าสูงกว่า 7 จะเป็นด่าง นึกถึงน้ำสบู่ หากมีความเป็นด่างสูง ธาตุอาหารพืชจะตกตะกอน
-                                        จนพืชไม่สามารถดูดซึมได้ ส่งผลให้พืชมีอาการแคระแกรน ใบเหลือง
-                                    </Typography>
+                                    <Typography variant="h6" className={styles.content} >ปริมาณออกซิเจนที่ละลายในน้ำ หรือค่าดีโอ (Dissolved Oxygen: DO) โดยปกติออกซิเจนที่ละลายในน้ำได้มาจากบรรยากาศและการสังเคราะห์ด้วยแสงของพืชที่ได้รับน้ำ ปริมาณออกซิเจนที่ละลายในน้ำ (Dissolved Oxygen:DO) จะแปรผกผันกับอุณหภูมิ และความเข้มข้นของแร่ธาตุที่ละลายในน้ำ ถ้าหากอุณหภูมิและความเข้มข้นของแร่ธาตุในน้ำสูง จะทำให้ออกซิเจนจะละลายในน้ำได้น้อยลง</Typography>
+                                    <Typography variant="h6" className={styles.content} >น้ำในธรรมชาติทั่วไปปกติจะมีค่าดีโอ Dissolved Oxygen ประมาณ 5-7 มิลลิกรัมต่อลิตร (mg/L) มาตรฐานน้ำที่มีคุณภาพดี จะมีค่า DO ประมาณ 5 – 8( mg/L) มิลลิกรัมต่อลิตร</Typography>
+                                    <Typography variant="h6" className={styles.content} >หากน้ำเสีย จะมีค่า DO ต่ำกว่า 3 (mg/L)มิลลิกรัมต่อลิตร</Typography>
                                 </Stack>
                             </Box>
                         </Grid>

@@ -34,7 +34,9 @@
     text-align: center;
     font-family: 'mitr' !important;
     color: #4ea9f4;
-    font-weight: 600;
+    font-weight: 700;
+    text-transform: uppercase;
+
 }
 
 .sec2TitleBox {

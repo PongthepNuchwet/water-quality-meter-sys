@@ -5,6 +5,9 @@ import Header from '../component/WaterQuality/Header';
 import Section1 from '../component/Home/Section1'
 import Section2 from '../component/Home/Section2'
 import Section3 from '../component/Home/Section3'
+import Section4 from '../component/Home/Section4'
+import Section5 from '../component/Home/Section5'
+import Section6 from '../component/Home/Section6'
 import Footer from '../component/Home/Footer'
 
 import Stack from '@mui/material/Stack';
@@ -30,6 +33,9 @@ export default function Home() {
                     <Section1 />
                     <Section2 />
                     <Section3 />
+                    {/* <Section4 /> */}
+                    <Section5 />
+                    <Section6 />
                     <Footer />
                 </Stack>
             </Box>

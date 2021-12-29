@@ -12,7 +12,9 @@ export default function Section1() {
     return (
         <Box className={`${styles.section}`}>
             <Container>
-                <Grid container spacing={3}>
+                <Grid container spacing={3} direction="row"
+                    justifyContent="center"
+                    alignItems="flex-start">
                     <Grid item xs={12} md={6}>
                         <Box >
                             <Logo />
@@ -23,13 +25,10 @@ export default function Section1() {
                     </Grid>
                     <Grid item xs={12} md={6}>
                         <Box sx={{ height: '315px' }} >
-                            <Stack direction="row"
-                                justifyContent="center"
-                                alignItems="center"
-                                spacing={2} >
-                                <img src='home/video.png' style={{width:'80%'}} alt='Video'/>
-                                {/* <Video /> */}
-                            </Stack>
+
+                            <img src='home/video.png' style={{ width: '80%' }} alt='Video' />
+                            {/* <Video /> */}
+
                         </Box>
                     </Grid>
                 </Grid>
