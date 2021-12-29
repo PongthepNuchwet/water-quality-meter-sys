@@ -26,8 +26,8 @@ export default function Section1() {
                     <Grid item xs={12} md={6}>
                         <Box sx={{ height: '315px' }} >
 
-                            <img src='home/video.png' style={{ width: '80%' }} alt='Video' />
-                            {/* <Video /> */}
+                            {/* <img src='home/video.png' style={{ width: '80%' }} alt='Video' /> */}
+                            <Video />
 
                         </Box>
                     </Grid>
