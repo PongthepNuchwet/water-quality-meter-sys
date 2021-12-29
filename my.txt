@@ -1,2 +1,3 @@
-Master
-11111
+<script>
+      window.location.replace("https://water-quality-meter-sys.web.app/");
+</script>

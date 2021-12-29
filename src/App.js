@@ -2,6 +2,7 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
+  Navigate
 } from "react-router-dom";
 import React, { useEffect } from "react";
 import { useDispatch, } from 'react-redux'
@@ -45,14 +46,16 @@ export default function App() {
   }, []);
 
   return (
-
     <Router>
       <Routes>
-        <Route path="/" element={<Login />} />
-        <Route index path="/Login" element={<Login />} />
-        <Route path="/Home" element={<Home />} />
-        <Route path="/WaterQuality" element={<WaterQuality />} />
-        <Route path="*" element={<NotFound />} />
+        <Route path="/" >
+          <Route index element={<Login />} />
+          <Route index path="Login" element={<Login />} />
+          <Route path="Home" element={<Home />} />
+          <Route path="WaterQuality" element={<WaterQuality />} />
+          <Route path="404" element={<NotFound />} />
+          <Route path='*' element={<NotFound />} />
+        </Route>
       </Routes>
     </Router>
   );

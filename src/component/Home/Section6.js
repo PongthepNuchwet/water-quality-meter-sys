@@ -28,7 +28,7 @@ export default function Section2() {
                         >
                             <Grid item xs={12} md={8}>
                                 <Box sx={{ p: '10px' }}>
-                                    <img className={styles.imgApp} src='home/flow.jpg' width="100%" alt='app' />
+                                    <img className={styles.imgApp} src='home/flow.jpeg' width="100%" alt='app' />
                                 </Box>
                             </Grid>
                         </Grid>
